@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Send } from 'lucide-react'
+import Link from 'next/link'
 
 const Hero = () => {
   const [message, setMessage] = useState('')
@@ -46,16 +47,20 @@ const Hero = () => {
               Relyy is here to listen, support, and guide you on your journey to better mental health. 
               Chat with our AI anytime, anywhere.
             </motion.p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="bg-purple-600 text-white font-semibold py-4 px-8 rounded-full text-lg shadow-lg hover:bg-purple-700 transition duration-300"
-            >
-              Start Chatting Now
-            </motion.button>
+            <div className="inline-block">
+              <Link href="/chatbot">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className="bg-purple-600 text-white font-semibold py-4 px-8 rounded-full text-lg shadow-lg hover:bg-purple-700 transition duration-300"
+                >
+                  Start Chatting Now
+                </motion.button>
+              </Link>
+            </div>
           </div>
 
           <motion.div

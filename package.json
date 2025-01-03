@@ -11,6 +11,10 @@
   "dependencies": {
     "@clerk/nextjs": "^5.2.3",
     "@clerk/themes": "^2.1.10",
+    "@radix-ui/react-avatar": "^1.1.2",
+    "@radix-ui/react-slot": "^1.1.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "framer-motion": "^11.15.0",
     "lucide-react": "^0.469.0",
     "mongodb": "^6.8.0",
@@ -18,7 +22,8 @@
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",
-    "svix": "^1.25.0"
+    "svix": "^1.25.0",
+    "tailwind-merge": "^2.6.0"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -32,3 +37,4 @@
     "typescript": "^5"
   }
 }
+
