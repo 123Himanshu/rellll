@@ -6,10 +6,12 @@ import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 import { UserButton } from "@clerk/nextjs";
 import { useAuth } from "@clerk/nextjs";
+import { usePathname } from 'next/navigation'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { userId } = useAuth();
+  const pathname = usePathname();
 
   const menuItems = [
     { name: 'Home', href: '/' },
@@ -19,7 +21,12 @@ const Header = () => {
     { name: 'Testimonials', href: '#testimonials' },
     { name: 'FAQ', href: '#faq' },
     { name: 'Client Page', href: '/client' },
+    { name: 'Chatbot', href: '/chatbot' },
   ];
+
+  if (pathname === '/chatbot') {
+    return null
+  }
 
   return (
     <motion.header
