@@ -11,6 +11,8 @@
   "dependencies": {
     "@clerk/nextjs": "^5.2.3",
     "@clerk/themes": "^2.1.10",
+    "framer-motion": "^11.15.0",
+    "lucide-react": "^0.469.0",
     "mongodb": "^6.8.0",
     "mongoose": "^8.9.3",
     "next": "14.2.5",
@@ -22,6 +24,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "concurrently": "^9.1.2",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "postcss": "^8",
