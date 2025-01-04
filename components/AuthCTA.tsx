@@ -9,6 +9,11 @@ const AuthCTA = () => {
   const { userId } = useAuth()
   const pathname = usePathname()
 
+  // If we're on the chatbot route, don't render anything
+  if (pathname === '/chatbot') {
+    return null
+  }
+
   // Hide on auth pages or when user is logged in
   if (userId || pathname === '/sign-in' || pathname === '/sign-up') return null
 
