@@ -41,10 +41,10 @@ const Testimonials = () => {
   }
 
   return (
-    <section className="py-16 bg-gray-800">
+    <section className="py-16 bg-gradient-to-br from-[#F0F7FF] via-[#E8F1F8] to-[#F0F7FF]">
       <div className="container mx-auto px-4">
         <motion.h2 
-          className="text-4xl font-bold text-center text-purple-300 mb-12"
+          className="text-4xl font-bold text-center text-[#2E5A88] mb-12"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -59,14 +59,16 @@ const Testimonials = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.5 }}
-              className="bg-gray-700 p-6 rounded-lg shadow-md"
+              className="bg-white/90 p-8 rounded-xl shadow-lg border border-[#ADD8E6]/20"
             >
-              <p className="text-gray-300 mb-4">{testimonials[currentIndex].text}</p>
+              <p className="text-[#4A5568] mb-6 text-lg leading-relaxed italic">
+                {testimonials[currentIndex].text}
+              </p>
               <div className="flex items-center justify-between">
-                <span className="text-purple-400 font-semibold">{testimonials[currentIndex].name}</span>
-                <div className="flex">
+                <span className="text-[#2E5A88] font-semibold">{testimonials[currentIndex].name}</span>
+                <div className="flex gap-1">
                   {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                    <Star key={i} size={16} className="text-yellow-400 fill-current" />
+                    <Star key={i} size={18} className="text-[#FFB547] fill-current" />
                   ))}
                 </div>
               </div>
@@ -74,13 +76,13 @@ const Testimonials = () => {
           </AnimatePresence>
           <button
             onClick={prevTestimonial}
-            className="absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-full bg-purple-600 text-white p-2 rounded-full"
+            className="absolute top-1/2 -left-12 transform -translate-y-1/2 bg-white text-[#2E5A88] p-3 rounded-full shadow-md hover:bg-[#F0F7FF] transition-all duration-300"
           >
             <ChevronLeft size={24} />
           </button>
           <button
             onClick={nextTestimonial}
-            className="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-full bg-purple-600 text-white p-2 rounded-full"
+            className="absolute top-1/2 -right-12 transform -translate-y-1/2 bg-white text-[#2E5A88] p-3 rounded-full shadow-md hover:bg-[#F0F7FF] transition-all duration-300"
           >
             <ChevronRight size={24} />
           </button>

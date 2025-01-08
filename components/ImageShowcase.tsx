@@ -11,10 +11,10 @@ const images = [
 
 const ImageShowcase = () => {
   return (
-    <section className="py-16 bg-gray-900">
+    <section className="py-16 bg-[#D8D8D8]">
       <div className="container mx-auto px-4">
         <motion.h2 
-          className="text-4xl font-bold text-center text-purple-300 mb-12"
+          className="text-4xl font-bold text-center text-[#2E5A88] mb-12"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -41,7 +41,7 @@ const ImageShowcase = () => {
               <motion.div
                 initial={{ opacity: 0 }}
                 whileHover={{ opacity: 1 }}
-                className="absolute inset-0 bg-purple-600 bg-opacity-75 flex items-center justify-center"
+                className="absolute inset-0 bg-[#2E5A88] bg-opacity-75 flex items-center justify-center"
               >
                 <p className="text-white text-lg font-semibold">View Details</p>
               </motion.div>
