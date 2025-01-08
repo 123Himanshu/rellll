@@ -24,31 +24,24 @@ const AuthCTA = () => {
       className="fixed bottom-8 left-0 right-0 z-40"
     >
       <div className="max-w-2xl mx-auto px-4">
-        <div className="bg-gray-800/95 backdrop-blur-sm shadow-lg rounded-2xl">
-          <div className="px-6 py-5">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div className="text-center sm:text-left">
-                <h3 className="text-xl font-semibold text-purple-400">Ready to Start Your Journey?</h3>
-                <p className="text-gray-300 mt-1">Join Relyy for personalized mental wellness support</p>
-              </div>
-              <div className="flex items-center gap-3">
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Link 
-                    href="/sign-in" 
-                    className="text-gray-300 hover:text-purple-400 px-4 py-2"
-                  >
-                    Login
-                  </Link>
-                </motion.div>
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Link 
-                    href="/sign-up" 
-                    className="bg-purple-600 text-white px-5 py-2 rounded-full hover:bg-purple-700 transition duration-300 whitespace-nowrap text-sm font-medium"
-                  >
-                    Sign up
-                  </Link>
-                </motion.div>
-              </div>
+        <div className="bg-white/95 backdrop-blur-sm shadow-lg rounded-xl border border-[#ADD8E6]/20">
+          <div className="px-8 py-6">
+            <h3 className="text-xl font-semibold text-[#2E5A88]">Ready to Start Your Journey?</h3>
+            <p className="text-[#4A5568] mt-2">Join Relyy for personalized mental wellness support</p>
+            
+            <div className="flex items-center gap-4">
+              <Link 
+                href="/sign-in" 
+                className="text-[#2E5A88] hover:text-[#1E3F66] px-6 py-2 rounded-full border border-[#2E5A88] hover:bg-[#F0F7FF] transition-all duration-300"
+              >
+                Login
+              </Link>
+              <Link 
+                href="/sign-up" 
+                className="bg-[#2E5A88] text-white px-6 py-2 rounded-full hover:bg-[#1E3F66] transition-all duration-300 shadow-md hover:shadow-lg"
+              >
+                Sign up
+              </Link>
             </div>
           </div>
         </div>

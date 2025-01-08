@@ -33,14 +33,14 @@ const Header = () => {
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed w-full bg-gray-800/90 backdrop-blur-sm shadow-lg z-50"
+      className="fixed w-full bg-white/90 backdrop-blur-sm shadow-lg z-50"
     >
       <div className="max-w-6xl mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="text-3xl font-bold text-purple-400"
+            className="text-3xl font-bold text-[#2E5A88]"
           >
             <Link href="/">Relyy</Link>
           </motion.div>
@@ -48,7 +48,7 @@ const Header = () => {
           <nav className="hidden md:flex items-center space-x-6">
             {menuItems.map((item) => (
               <motion.div key={item.name} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                <Link href={item.href} className="text-gray-300 hover:text-purple-400">
+                <Link href={item.href} className="text-gray-600 hover:text-[#2E5A88]">
                   {item.name}
                 </Link>
               </motion.div>
@@ -58,12 +58,12 @@ const Header = () => {
               {!userId ? (
                 <>
                   <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                    <Link href="/sign-in" className="text-gray-300 hover:text-purple-400">
+                    <Link href="/sign-in" className="text-[#4A5568] hover:text-[#2E5A88] transition-all duration-300">
                       Login
                     </Link>
                   </motion.div>
                   <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                    <Link href="/sign-up" className="bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700 transition duration-300">
+                    <Link href="/sign-up" className="bg-[#2E5A88] text-white px-4 py-2 rounded-full hover:bg-[#1d3b5a] transition duration-300">
                       Sign Up
                     </Link>
                   </motion.div>
@@ -71,7 +71,7 @@ const Header = () => {
               ) : (
                 <>
                   <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                    <Link href="/profile" className="text-gray-300 hover:text-purple-400">
+                    <Link href="/profile" className="text-[#4A5568] hover:text-[#2E5A88] transition-all duration-300">
                       Profile
                     </Link>
                   </motion.div>
@@ -85,7 +85,10 @@ const Header = () => {
 
           <div className="md:hidden">
             <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
-              {isMenuOpen ? <X className="text-gray-300" /> : <Menu className="text-gray-300" />}
+              {isMenuOpen ? 
+                <X className="text-[#2E5A88]" /> : 
+                <Menu className="text-[#2E5A88]" />
+              }
             </button>
           </div>
         </div>

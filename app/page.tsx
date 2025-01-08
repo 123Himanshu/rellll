@@ -1,12 +1,12 @@
 import Header from '../components/Navbar'
 import Hero from '../components/Hero'
 import Features from '../components/Features'
-import HowItWorks from '../components/HowItWorks'
-import Testimonials from '../components/Testimonials'
-import FAQ from '../components/FAQ'
-import CTA from '../components/CTA'
-import Footer from '../components/Footer'
-import ImageShowcase from '../components/ImageShowcase'
+// import HowItWorks from '../components/HowItWorks'
+// import Testimonials from '../components/Testimonials'
+// import FAQ from '../components/FAQ'
+// import CTA from '../components/CTA'
+// import Footer from '../components/Footer'
+// import ImageShowcase from '../components/ImageShowcase'
 
 export default function Home() {
   return (
@@ -14,12 +14,12 @@ export default function Home() {
       <Header />
       <Hero />
       <Features />
-      <HowItWorks />
+      {/* <HowItWorks />
       <ImageShowcase />
       <Testimonials />
       <FAQ />
       <CTA />
-      <Footer />
+      <Footer /> */}
     </main>
   );
 }

@@ -23,7 +23,7 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section className="py-16 bg-gray-900">
+    <section className="py-16 bg-gradient-to-b from-[#E8F1F8] to-white">
       <div className="container mx-auto px-4">
         <motion.h2 
           className="text-4xl font-bold text-center text-purple-300 mb-12"

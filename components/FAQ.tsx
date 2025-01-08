@@ -27,10 +27,10 @@ const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
 
   return (
-    <section className="py-16 bg-gray-900">
+    <section className="py-16 bg-[#D8D8D8]">
       <div className="container mx-auto px-4">
         <motion.h2 
-          className="text-4xl font-bold text-center text-purple-300 mb-12"
+          className="text-4xl font-bold text-center text-[#2E5A88] mb-12"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -48,15 +48,15 @@ const FAQ = () => {
             >
               <motion.button
                 onClick={() => setActiveIndex(activeIndex === index ? null : index)}
-                className="flex justify-between items-center w-full text-left p-4 bg-gray-800 rounded-lg focus:outline-none"
+                className="flex justify-between items-center w-full text-left p-4 bg-white rounded-lg focus:outline-none"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <span className="text-gray-100 font-semibold">{faq.question}</span>
+                <span className="text-[#4A5568] font-semibold">{faq.question}</span>
                 {activeIndex === index ? (
-                  <ChevronUp className="text-purple-400" />
+                  <ChevronUp className="text-[#2E5A88]" />
                 ) : (
-                  <ChevronDown className="text-purple-400" />
+                  <ChevronDown className="text-[#2E5A88]" />
                 )}
               </motion.button>
               <AnimatePresence>
