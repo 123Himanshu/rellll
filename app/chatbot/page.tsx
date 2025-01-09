@@ -1,5 +1,5 @@
 'use client'
- 
+
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useChat } from 'ai/react'
@@ -12,10 +12,10 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Menu, Plus, Settings, HelpCircle, Clock, Heart, ChevronDown, Send } from 'lucide-react'
- 
+import { Menu, Plus, Settings, HelpCircle, ChevronDown, Send } from 'lucide-react'
+
 type ChatError = Error | { message: string };
- 
+
 export default function ChatPage() {
   const { messages, input, handleInputChange, handleSubmit, isLoading, error } = useChat({
     api: '/api/chat',
@@ -29,122 +29,126 @@ export default function ChatPage() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   return (
-    <div className="flex h-screen bg-[#D8D8D8]">
+    <div className="flex h-screen bg-[#F0F4F8]">
       {/* Sidebar */}
-      <AnimatePresence mode="wait">
-        {sidebarOpen && (
-          <motion.div
-            initial={{ x: -300, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: -300, opacity: 0 }}
-            className="w-80 border-r border-[#2E5A88]/20 bg-white/80 backdrop-blur-sm"
+      <motion.div 
+        initial={false}
+        animate={{
+          width: sidebarOpen ? 256 : 64,
+          transition: { duration: 0.3, ease: "easeOut" }
+        }}
+        className="bg-white/80 backdrop-blur-sm border-r border-[#4A5568]/20 flex flex-col py-4"
+      >
+        {/* Toggle Button */}
+        <motion.button 
+          onClick={() => setSidebarOpen(!sidebarOpen)}
+          className="p-2 mb-4 text-[#4A5568] hover:bg-[#4A5568]/10 flex items-center mx-3"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <Menu size={28} />
+        </motion.button>
+
+        {/* New Session Button */}
+        <motion.button 
+          className="mx-3 p-2 rounded-lg bg-[#4A5568]/10 text-[#4A5568] hover:bg-[#4A5568]/20 transition-colors flex items-center gap-2"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+        >
+          <Plus size={24} />
+          <AnimatePresence mode="wait">
+            {sidebarOpen && (
+              <motion.span
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -10 }}
+                transition={{ duration: 0.2 }}
+              >
+                New session
+              </motion.span>
+            )}
+          </AnimatePresence>
+        </motion.button>
+
+        {/* Navigation Icons */}
+        <div className="flex flex-col mt-auto">
+          <motion.button 
+            className="p-2 mx-3 text-[#4A5568] hover:bg-[#4A5568]/10 rounded-lg flex items-center gap-2 mb-2"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
-            <div className="flex flex-col h-full">
-              <div className="p-4">
-                <Button
-                  variant="outline"
-                  className="w-full justify-start gap-2 text-[#2E5A88] hover:bg-[#2E5A88]/10"
-                  onClick={() => {}}
+            <HelpCircle size={24} />
+            <AnimatePresence mode="wait">
+              {sidebarOpen && (
+                <motion.span
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -10 }}
+                  transition={{ duration: 0.2 }}
                 >
-                  <Plus size={16} />
-                  New conversation
-                </Button>
-              </div>
- 
-              <div className="px-4 py-2">
-                <h2 className="text-sm font-semibold text-[#2E5A88]">Recent Topics</h2>
-              </div>
- 
-              <div className="flex-1 overflow-auto px-4">
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="space-y-2"
-                >
-                  {['Stress Management', 'Anxiety Coping', 'Mood Improvement'].map((topic) => (
-                    <Button
-                      key={topic}
-                      variant="ghost"
-                      className="w-full justify-start text-left font-normal text-[#2E5A88] hover:bg-[#2E5A88]/10"
-                    >
-                      {topic}
-                    </Button>
-                  ))}
-                </motion.div>
-              </div>
- 
-              <div className="p-4 border-t border-[#2E5A88]/20 space-y-2">
-                <Button variant="ghost" className="w-full justify-start gap-2 text-[#2E5A88] hover:bg-[#2E5A88]/10">
-                  <Heart size={16} />
-                  Wellness Resources
-                </Button>
-                <Button variant="ghost" className="w-full justify-start gap-2 text-[#2E5A88] hover:bg-[#2E5A88]/10">
-                  <HelpCircle size={16} />
                   Help
-                </Button>
-                <Button variant="ghost" className="w-full justify-start gap-2 text-[#2E5A88] hover:bg-[#2E5A88]/10">
-                  <Clock size={16} />
-                  Session History
-                </Button>
-                <Button variant="ghost" className="w-full justify-start gap-2 text-[#2E5A88] hover:bg-[#2E5A88]/10">
-                  <Settings size={16} />
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </motion.button>
+          <motion.button 
+            className="p-2 mx-3 text-[#4A5568] hover:bg-[#4A5568]/10 rounded-lg flex items-center gap-2 mb-2"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <Settings size={24} />
+            <AnimatePresence mode="wait">
+              {sidebarOpen && (
+                <motion.span
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -10 }}
+                  transition={{ duration: 0.2 }}
+                >
                   Settings
-                </Button>
-              </div>
- 
-              <div className="p-4 border-t border-[#2E5A88]/20">
-                <p className="text-sm text-[#2E5A88]/80">
-                  Remember: This is not a substitute for professional help.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
- 
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </motion.button>
+        </div>
+      </motion.div>
+
       {/* Main Content */}
-      <div className="flex-1 flex flex-col bg-gradient-to-b from-[#ADD8E6]/30 to-[#D8D8D8]/30">
-        <header className="h-14 border-b border-[#2E5A88]/20 bg-white/50 backdrop-blur-sm flex items-center justify-between px-4">
+      <div className="flex-1 flex flex-col bg-gradient-to-b from-[#E6F0F8]/30 to-[#F0F4F8]/30">
+        <header className="h-14 border-b border-[#4A5568]/20 bg-white/50 backdrop-blur-sm flex items-center justify-between px-4">
           <div className="flex items-center gap-2">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setSidebarOpen(!sidebarOpen)}
-              className="text-[#2E5A88]"
-            >
-              <Menu size={20} />
-            </Button>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="gap-2 text-[#2E5A88]">
-                  MindfulAI
-                  <span className="text-xs text-[#2E5A88]/70">Mental Health Support</span>
+                <Button variant="ghost" className="gap-2 text-[#4A5568] hover:bg-transparent hover:text-[#4A5568]">
+                  Relyy Therapist
+                  <span className="text-xs text-[#4A5568]/70 hover:text-[#4A5568]/70">Relyy Health Support</span>
                   <ChevronDown size={16} />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-white border-[#2E5A88]/20">
-                <DropdownMenuItem className="text-[#2E5A88] hover:bg-[#2E5A88]/10">
-                  About MindfulAI
+              <DropdownMenuContent className="bg-white border-[#4A5568]/20">
+                <DropdownMenuItem className="text-[#4A5568] hover:bg-[#4A5568]/10">
+                  About RelyyAI
                 </DropdownMenuItem>
-                <DropdownMenuItem className="text-[#2E5A88] hover:bg-[#2E5A88]/10">
+                <DropdownMenuItem className="text-[#4A5568] hover:bg-[#4A5568]/10">
                   Privacy Policy
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
- 
+
           <div className="flex items-center gap-2">
-            <Button variant="outline" className="gap-2 text-[#2E5A88] border-[#2E5A88]/20 hover:bg-[#2E5A88]/10">
+            <Button className="gap-2 bg-[#4A5568] hover:bg-[#4A5568]/90 text-white transition-colors">
               <Plus size={16} />
-              Find a Therapist
+              Find a Human Therapist
             </Button>
-            <Avatar>
-              <AvatarImage src="/placeholder.svg" />
-              <AvatarFallback>U</AvatarFallback>
+            <Avatar className="h-9 w-9 bg-[#4A5568]">
+              <AvatarFallback className="text-white font-medium text-sm">
+                U
+              </AvatarFallback>
             </Avatar>
           </div>
         </header>
- 
+
         <main className="flex-1 overflow-auto p-4 space-y-6">
           {error && (
             <div className="p-4 text-red-500 bg-red-50 rounded-md mb-4 max-w-2xl mx-auto">
@@ -163,45 +167,137 @@ export default function ChatPage() {
                 }`}
               >
                 {message.role === 'assistant' && (
-                  <Avatar className="w-8 h-8">
-                    <AvatarImage src="/ai-avatar.png" />
-                    <AvatarFallback className="bg-[#2E5A88] text-white">AI</AvatarFallback>
+                  <Avatar className="w-8 h-8 ring-2 ring-white">
+                    <AvatarFallback className="bg-gradient-to-br from-[#4A5568] to-[#2D3748] text-white text-xs font-medium">
+                      AI
+                    </AvatarFallback>
                   </Avatar>
                 )}
                 <div
                   className={`rounded-2xl p-4 max-w-[80%] shadow-sm ${
                     message.role === 'user'
-                      ? 'bg-[#2E5A88] text-white ml-auto'
-                      : 'bg-white text-[#2E5A88] border border-[#2E5A88]/20'
+                      ? 'bg-[#4A5568] text-white ml-auto'
+                      : 'bg-white text-[#4A5568] border border-[#4A5568]/20'
                   }`}
                 >
                   <p className="text-sm whitespace-pre-wrap font-medium">{message.content}</p>
                 </div>
                 {message.role === 'user' && (
-                  <Avatar className="w-8 h-8">
-                    <AvatarImage src="/user-avatar.png" />
-                    <AvatarFallback className="bg-[#ADD8E6]">U</AvatarFallback>
+                  <Avatar className="w-8 h-8 ring-2 ring-[#4A5568]">
+                    <AvatarFallback className="bg-white text-[#4A5568] text-xs font-medium">
+                      You
+                    </AvatarFallback>
                   </Avatar>
                 )}
               </motion.div>
             ))}
           </AnimatePresence>
+          {messages.length === 0 && (
+            <div className="h-full flex items-center justify-center">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  duration: 1.2, 
+                  ease: "easeOut"
+                }}
+                className="text-center"
+              >
+                <motion.h1 
+                  className="text-6xl font-normal"
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ 
+                    delay: 0.5, 
+                    duration: 1.2, 
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 20
+                  }}
+                >
+                  <motion.span
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ 
+                      delay: 0.8,
+                      duration: 1,
+                      ease: "easeOut"
+                    }}
+                    className="text-[#4A5568]"
+                  >
+                    Welcome,
+                  </motion.span>
+                  {" "}
+                  <motion.span
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ 
+                      delay: 1.2,
+                      duration: 1,
+                      ease: "easeOut"
+                    }}
+                    className="text-[#68D391]"
+                  >
+                    Friend
+                  </motion.span>
+                </motion.h1>
+                <motion.p
+                  className="mt-6 text-3xl font-normal text-[#4A5568]"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ 
+                    delay: 1.8, 
+                    duration: 1,
+                    ease: "easeOut"
+                  }}
+                >
+                  I'm your personal{" "}
+                  <motion.span 
+                    className="font-medium text-[#4A5568]"
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{
+                      delay: 2.2,
+                      duration: 0.8,
+                      type: "spring",
+                      stiffness: 100,
+                      damping: 15
+                    }}
+                  >
+                    Relyy MindfulAI
+                  </motion.span>{" "}
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ 
+                      delay: 2.6, 
+                      duration: 0.8,
+                      ease: "easeOut"
+                    }}
+                    className="text-[#4A5568]"
+                  >
+                    therapist
+                  </motion.span>
+                </motion.p>
+              </motion.div>
+            </div>
+          )}
         </main>
- 
-        <footer className="p-4 border-t border-[#2E5A88]/20 bg-white/50 backdrop-blur-sm">
+
+        <footer className="p-4 border-t border-[#4A5568]/20 bg-white/50 backdrop-blur-sm">
           <form onSubmit={handleSubmit} className="max-w-2xl mx-auto flex gap-2">
             <Input
               value={input}
               onChange={handleInputChange}
-              placeholder="Ask about mental health..."
-              className="flex-1 bg-white border-[#2E5A88]/20 focus:ring-[#2E5A88] focus:border-[#2E5A88] 
-                placeholder-[#2E5A88]/50 text-[#2E5A88] font-medium"
+              placeholder="Share your thoughts or concerns..."
+              className="flex-1 bg-white border-[#4A5568]/20 focus:ring-[#4A5568] focus:border-[#4A5568] 
+                placeholder-[#4A5568]/50 text-[#4A5568] font-medium"
               disabled={isLoading}
             />
             <Button 
               type="submit" 
               disabled={isLoading || !input.trim()}
-              className="bg-[#2E5A88] hover:bg-[#2E5A88]/90 text-white"
+              className="bg-[#4A5568] hover:bg-[#4A5568]/90 text-white"
             >
               {isLoading ? (
                 <div className="animate-spin">⌛</div>
@@ -210,7 +306,7 @@ export default function ChatPage() {
               )}
             </Button>
           </form>
-          <p className="text-xs text-center mt-2 text-[#2E5A88]/70">
+          <p className="text-xs text-center mt-2 text-[#4A5568]/70">
             For emergencies, please call your local emergency services or mental health crisis hotline.
           </p>
         </footer>
@@ -218,3 +314,4 @@ export default function ChatPage() {
     </div>
   );
 }
+
