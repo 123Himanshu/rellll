@@ -10,7 +10,7 @@ const AuthCTA = () => {
   const pathname = usePathname()
 
   // If we're on the chatbot route, don't render anything
-  if (pathname === '/chatbot') {
+  if (pathname === '/chatbot' || pathname === '/voice-chat') {
     return null
   }
 

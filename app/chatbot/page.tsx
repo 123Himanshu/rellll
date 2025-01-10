@@ -139,17 +139,6 @@ export default function ChatPage() {
           </div>
 
           <div className="flex items-center gap-2">
-            <Button 
-              onClick={() => router.push('/voice-chat')}
-              className="gap-2 bg-[#4A5568] hover:bg-[#4A5568]/90 text-white"
-            >
-              <Mic size={16} />
-              Voice Chat
-            </Button>
-            <Button className="gap-2 bg-[#4A5568] hover:bg-[#4A5568]/90 text-white transition-colors">
-              <Plus size={16} />
-              Find a Human Therapist
-            </Button>
             <Avatar className="h-9 w-9 bg-[#4A5568]">
               <AvatarFallback className="text-white font-medium text-sm">
                 U
