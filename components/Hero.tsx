@@ -47,17 +47,37 @@ const Hero = () => {
               Relyy is here to listen, support, and guide you on your journey to better mental health. 
               Chat with our AI anytime, anywhere.
             </motion.p>
-            <div className="inline-block">
-              <Link href="/chatbot">
+            <div className="flex flex-col space-y-4 w-full max-w-md">
+              <Link href="/chatbot" className="w-full">
                 <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                  className="bg-purple-600 text-white font-semibold py-4 px-8 rounded-full text-lg shadow-lg hover:bg-purple-700 transition duration-300"
+                  transition={{
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 25
+                  }}
+                  className="w-full bg-purple-600 text-white font-semibold py-4 px-8 rounded-full text-lg shadow-lg hover:bg-purple-700 transition-all duration-200"
                 >
-                  Start Chatting Now
+                  Conversation with therapist
+                </motion.button>
+              </Link>
+              <Link href="/voice-chat" className="w-full">
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 25
+                  }}
+                  className="w-full bg-purple-600 text-white font-semibold py-4 px-8 rounded-full text-lg shadow-lg hover:bg-purple-700 transition-all duration-200"
+                >
+                  Voice Conversation with therapist
                 </motion.button>
               </Link>
             </div>
