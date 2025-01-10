@@ -22,9 +22,10 @@ const Header = () => {
     { name: 'FAQ', href: '#faq' },
     { name: 'Client Page', href: '/client' },
     { name: 'Chatbot', href: '/chatbot' },
+    { name: 'Voice Chat', href: '/voice-chat' },
   ];
 
-  if (pathname === '/chatbot') {
+  if (pathname === '/chatbot' || pathname === '/voice-chat') {
     return null
   }
 

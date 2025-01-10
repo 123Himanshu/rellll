@@ -12,11 +12,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Menu, Plus, Settings, HelpCircle, ChevronDown, Send } from 'lucide-react'
+import { Menu, Plus, Settings, HelpCircle, ChevronDown, Send, Mic } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 
 type ChatError = Error | { message: string };
 
 export default function ChatPage() {
+  const router = useRouter()
   const { messages, input, handleInputChange, handleSubmit, isLoading, error } = useChat({
     api: '/api/chat',
     onError: (err: Error) => {
@@ -137,6 +139,13 @@ export default function ChatPage() {
           </div>
 
           <div className="flex items-center gap-2">
+            <Button 
+              onClick={() => router.push('/voice-chat')}
+              className="gap-2 bg-[#4A5568] hover:bg-[#4A5568]/90 text-white"
+            >
+              <Mic size={16} />
+              Voice Chat
+            </Button>
             <Button className="gap-2 bg-[#4A5568] hover:bg-[#4A5568]/90 text-white transition-colors">
               <Plus size={16} />
               Find a Human Therapist
@@ -251,7 +260,7 @@ export default function ChatPage() {
                     ease: "easeOut"
                   }}
                 >
-                  I'm your personal{" "}
+                  I am your personal{" "}
                   <motion.span 
                     className="font-medium text-[#4A5568]"
                     initial={{ scale: 0.9, opacity: 0 }}
