@@ -514,7 +514,7 @@ Ask thoughtful follow-up questions based on previous insights.
                   {callStatus === 'idle' && (
                     <span className="flex items-center justify-center gap-2">
                       <Phone className="w-4 h-4 text-blue-600" />
-                      Tap to start call
+                      Tap to start Voice Conversion
                     </span>
                   )}
                   {callStatus === 'calling' && (
