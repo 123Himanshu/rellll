@@ -25,7 +25,7 @@ const Header = () => {
     // { name: 'Voice Chat', href: '/voice-chat' },    
   ];
 
-  if (pathname === '/chatbot' || pathname === '/voice-chat') {
+  if (pathname === '/chatbot' ) {
     return null
   }
 
