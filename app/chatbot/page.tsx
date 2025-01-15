@@ -12,7 +12,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Menu, Plus, Settings, HelpCircle, ChevronDown, Send, Mic } from 'lucide-react'
+import { Menu, Plus, ChevronDown, Send, Mic } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 
 type ChatError = Error | { message: string };
@@ -74,44 +74,7 @@ export default function ChatPage() {
 
         {/* Navigation Icons */}
         <div className="flex flex-col mt-auto">
-          <motion.button 
-            className="p-2 mx-3 text-[#4A5568] hover:bg-[#4A5568]/10 rounded-lg flex items-center gap-2 mb-2"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <HelpCircle size={24} />
-            <AnimatePresence mode="wait">
-              {sidebarOpen && (
-                <motion.span
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -10 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  Help
-                </motion.span>
-              )}
-            </AnimatePresence>
-          </motion.button>
-          <motion.button 
-            className="p-2 mx-3 text-[#4A5568] hover:bg-[#4A5568]/10 rounded-lg flex items-center gap-2 mb-2"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <Settings size={24} />
-            <AnimatePresence mode="wait">
-              {sidebarOpen && (
-                <motion.span
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -10 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  Settings
-                </motion.span>
-              )}
-            </AnimatePresence>
-          </motion.button>
+          {/* Help and Settings buttons removed */}
         </div>
       </motion.div>
 
