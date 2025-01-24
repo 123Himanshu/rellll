@@ -64,7 +64,7 @@ const Hero = () => {
                   Conversation with therapist
                 </motion.button>
               </Link>
-              {/* <Link href="/voice-chat" className="w-full">
+              <Link href="/orb" className="w-full">
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
@@ -79,7 +79,7 @@ const Hero = () => {
                 >
                   Voice Conversation with therapist
                 </motion.button>
-              </Link> */}
+              </Link>
             </div>
           </div>
 
